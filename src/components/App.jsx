@@ -1,29 +1,58 @@
-import user from 'ElementJson/user.json';
-import Profile from './Profile/Profile';
-
-import data from 'ElementJson/data.json';
+import React from 'react';
+import { Component } from 'react';
+import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
+import Notification from './Notification/Notification';
+import Section from './Section/Section';
 import Statistics from './Statistics/Statistics';
 
-import friends from 'ElementJson/friends.json';
-import FriendList from './FriendList/FriendList';
+const options = [
+  { id: 'good', title: 'Good', name: 'good', type: 'button' },
+  { id: 'neutral', title: 'Neutral', name: 'neutral', type: 'button' },
+  { id: 'bad', title: 'Bad', name: 'bad', type: 'button' },
+];
+class App extends Component {
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
 
-import transactions from 'ElementJson/transactions.json';
-import TransactionHistory from './TransactionHistory/TransactionHistory';
+  onButtonClick = e => {
+    const { name } = e.target;
+    this.setState(prev => ({ [name]: prev[name] + 1 }));
+  };
+  countTotalFeedback = () => {
+    return this.state.good + this.state.neutral + this.state.bad;
+  };
+  countPositiveFeedbackPercentage = () => {
+    const total = this.countTotalFeedback();
+    return ((this.state.good / total) * 100).toFixed(0);
+  };
 
-export const App = () => {
-  return (
-    <>
-      <Profile
-        username={user.username}
-        tag={user.tag}
-        location={user.location}
-        avatar={user.avatar}
-        stats={user.stats}
-      />
-      <Statistics title="Upload stats" stats={data} />
-      <Statistics stats={data} />
-      <FriendList friends={friends} />;
-      <TransactionHistory items={transactions} />;
-    </>
-  );
-};
+  render() {
+    const totalCount = this.countTotalFeedback();
+    const positiveFeedback = this.countPositiveFeedbackPercentage();
+    const { good, neutral, bad } = this.state;
+    return (
+      <Section title="Please leave feedback">
+        <FeedbackOptions
+          options={options}
+          onLeaveFeedback={this.onButtonClick}
+        />
+        {totalCount === 0 ? (
+          <Notification message="There is no feedback" />
+        ) : (
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={totalCount}
+            positivePercentage={positiveFeedback}
+          />
+        )}
+      </Section>
+    );
+  }
+}
+
+export default App;
