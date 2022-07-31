@@ -1,4 +1,4 @@
-.ulka {
+.list {
   list-style: none;
   text-align: center;
   padding: 0;
@@ -7,6 +7,7 @@
   font-size: 20px;
   line-height: 1.2;
 }
+
 h2 {
   margin: 10px;
   font-size: 30px;

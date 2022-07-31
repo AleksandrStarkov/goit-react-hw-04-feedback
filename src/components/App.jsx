@@ -21,9 +21,12 @@ class App extends Component {
     const { name } = e.target;
     this.setState(prev => ({ [name]: prev[name] + 1 }));
   };
+
   countTotalFeedback = () => {
-    return this.state.good + this.state.neutral + this.state.bad;
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
   };
+
   countPositiveFeedbackPercentage = () => {
     const total = this.countTotalFeedback();
     return ((this.state.good / total) * 100).toFixed(0);

@@ -11,7 +11,7 @@ export default function Statistics({
   return (
     <>
       <h2>Statistics</h2>
-      <ul className={s.ulka}>
+      <ul className={s.list}>
         <li>Good: {good}</li>
         <li>Neutral: {neutral}</li>
         <li>Bad: {bad}</li>
