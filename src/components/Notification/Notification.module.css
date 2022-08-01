@@ -2,12 +2,9 @@
   margin-top: 100px;
   font-size: 50px;
   color: #0b00ff;
-  background: linear-gradient(
-    7deg,
-    rgba(255, 1, 25, 0.47524947478991597) 33%,
-    rgba(1, 55, 255, 0.4584427521008403) 49%,
-    rgba(111, 255, 1, 0.5872942927170868) 60%,
-    rgba(255, 0, 2, 0.41082370448179273) 100%
+  background: radial-gradient(
+    rgba(242, 255, 1, 0.807) 10%,
+    rgba(255, 0, 0, 0.553) 100%
   );
   border-radius: 10px;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
