@@ -8,17 +8,16 @@
   border: none;
 
   background: radial-gradient(
-    circle,
-    rgba(1, 55, 255, 0.4584427521008403) 30%,
-    rgba(243, 255, 1, 0.5872942927170868) 50%,
-    rgba(255, 0, 2, 0.41082370448179273) 100%
+    /* rgba(1, 55, 255, 0.4584427521008403) 30%, */
+      rgba(243, 255, 1, 0.5872942927170868) 50%,
+    rgba(255, 4, 0, 0.411) 100%
   );
   color: #0b00ff;
 }
 
 .button:hover {
   background-color: rgb(255, 251, 0);
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: inset 0px 0px 15px 6px #f80015, 0px 0px 16px 7px #ff00ccc6,
+    0px 0px 5px 5px #2400f3;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
